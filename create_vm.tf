@@ -7,9 +7,9 @@ provider "vsphere" {
 }
 ## APONTA O DATACENTER QUE A VM SERA CRIADA
 data "vsphere_datacenter" "dc" {
-  #name = "DC_DES_CAS"
   name = "${var.vsphere_dc}"
   }
+
 ## APONTA O DATASTORE QUE A VM SERA CRIADA
 data "vsphere_datastore" "datastore" {
   name          = "${var.datastore_name}"
@@ -69,24 +69,24 @@ disk {
    thin_provisioned = false
    }
 
-  clone {
-    template_uuid = "${data.vsphere_virtual_machine.template.id}"
+clone {
+   template_uuid = "${data.vsphere_virtual_machine.template.id}"
 
-    customize {
-      linux_options{
-        host_name = "${var.host_name}"
-        domain = "${var.domain}"
-      }
-      network_interface {
-        ipv4_address = "${var.ipv4}"
-        ipv4_netmask = "${var.mask_id}"
-      }
+customize {
+   linux_options{
+   host_name = "${var.host_name}"
+   domain = "${var.domain}"
+   }
+network_interface {
+   ipv4_address = "${var.ipv4}"
+   ipv4_netmask = "${var.mask_id}"
+   }
 
-      ipv4_gateway = "${var.ipv4_gateway}"
-      dns_suffix_list = ["${var.dns_suffix}"]
-      dns_server_list = ["${var.dns_server}","${var.dns_server2}"]
+   ipv4_gateway = "${var.ipv4_gateway}"
+   dns_suffix_list = ["${var.dns_suffix}"]
+   dns_server_list = ["${var.dns_server}","${var.dns_server2}"]
     }
-    }
+   }
 }
 
 
