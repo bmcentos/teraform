@@ -1,0 +1,17 @@
+variable "vsphere_server" {}
+variable "vsphere_user" {}
+variable "vsphere_password" {}
+variable "vsphere_dc" {}
+variable "domain" {}
+variable "datastore_name" {}
+variable "pool_name" {}
+variable "vlan_name" {}
+variable "template_name" {}
+variable "vm_name" {}
+variable "host_name" {}
+variable "ipv4" {}
+variable "mask_id" {}
+variable "dns_server" {}
+variable "dns_server2" {}
+variable "dns_suffix" {}
+variable "ipv4_gateway" {}
