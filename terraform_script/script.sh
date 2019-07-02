@@ -5,17 +5,17 @@ info ()
 {
 clear
 echo "Selecione o vcenter: "
-echo "1 - vcenterspo.intra.fazenda.sp.gov.br"
-echo "2 - vcentercas.intra.fazenda.sp.gov.br"
+echo "1 - vcenter1 (fqdn)"
+echo "2 - vcenter2 (fqdn)"
 
 read -p "vCenter [ 1/2 ]: " vsphere_server
 
 if [ $vsphere_server = 1 ] ; then
 
- echo "vsphere_server = \"vcenterspo.intra.fazenda.sp.gov.br\"" > $VARSTMP
+ echo "vsphere_server = \"vcenter1\"" > $VARSTMP
 
 	elif [ $vsphere_server = 2 ] ; then
-	echo "vsphere_server = \"vcentercas.intra.fazenda.sp.gov.br\"" > $VARSTMP
+	echo "vsphere_server = \"vcenter2\"" > $VARSTMP
 fi
 read -p "usuario: " vsphere_user ; echo "vsphere_user = \"$vsphere_user\"" >> $VARSTMP
 stty -echo
